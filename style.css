@@ -1,0 +1,63 @@
+/* Configurações Gerais e Reset */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Caixa Principal do Gerador */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Visor onde a senha aparece */
+.password-display {
+    background-color: #f8f9fa;
+    border: 2px dashed #cbd5e1;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0f172a;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    word-break: break-all;
+    border-radius: 6px;
+    min-height: 24px;
+}
+
+/* Botão de Ação */
+button {
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* Efeitos de Passar o Mouse e Clicar */
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
