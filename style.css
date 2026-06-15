@@ -15,7 +15,7 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 380px;
     text-align: center;
 }
 
@@ -24,23 +24,52 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Container do visor + botão de copiar */
+.password-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
 /* Visor onde a senha aparece */
 .password-display {
+    flex: 1;
     background-color: #f8f9fa;
     border: 2px dashed #cbd5e1;
     padding: 12px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #0f172a;
     letter-spacing: 1px;
-    margin-bottom: 20px;
     word-break: break-all;
     border-radius: 6px;
     min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Botão de Ação */
-button {
+/* Botão de Copiar */
+.copy-btn {
+    background-color: #e2e8f0;
+    border: none;
+    padding: 0 15px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.copy-btn:hover {
+    background-color: #cbd5e1;
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* Botão de Gerar Senha */
+.generate-btn {
     width: 100%;
     background-color: #2563eb;
     color: white;
@@ -53,11 +82,10 @@ button {
     transition: background 0.2s, transform 0.1s;
 }
 
-/* Efeitos de Passar o Mouse e Clicar */
-button:hover {
+.generate-btn:hover {
     background-color: #1d4ed8;
 }
 
-button:active {
+.generate-btn:active {
     transform: scale(0.98);
 }
