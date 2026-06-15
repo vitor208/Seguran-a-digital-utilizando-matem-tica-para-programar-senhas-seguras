@@ -10,8 +10,13 @@
 
     <div class="container">
         <h2>Gerador de Senha</h2>
-        <div class="password-display" id="passwordScreen">Clique em Gerar</div>
-        <button onclick="generatePassword()">Gerar Senha Forte</button>
+        
+        <div class="password-container">
+            <div class="password-display" id="passwordScreen">Clique em Gerar</div>
+            <button class="copy-btn" onclick="copyPassword()" title="Copiar Senha">📋</button>
+        </div>
+
+        <button class="generate-btn" onclick="generatePassword()">Gerar Senha Forte</button>
     </div>
 
     <script>
@@ -26,6 +31,23 @@
             }
 
             document.getElementById("passwordScreen").innerText = password;
+        }
+
+        function copyPassword() {
+            const passwordText = document.getElementById("passwordScreen").innerText;
+
+            // Evita copiar o texto inicial padrão
+            if (passwordText === "Clique em Gerar") {
+                alert("Gere uma senha primeiro!");
+                return;
+            }
+
+            // Copia o texto para a área de transferência
+            navigator.clipboard.writeText(passwordText).then(() => {
+                alert("Senha copiada para a área de transferência!");
+            }).catch(err => {
+                console.error("Erro ao copiar: ", err);
+            });
         }
     </script>
 
