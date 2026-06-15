@@ -1,91 +1,135 @@
-/* Configurações Gerais e Reset */
+/* Reset de margens e fontes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Fundo da página com gradiente escuro premium */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    color: #f8fafc;
 }
 
-/* Caixa Principal do Gerador */
-.container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 380px;
+/* Card principal do Gerador */
+.card-generator {
+    background-color: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Cabeçalho de texto */
+.header {
     text-align: center;
+    margin-bottom: 32px;
 }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
+.header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Container do visor + botão de copiar */
-.password-container {
+.header p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* Agrupamento do visor e do botão copiar */
+.input-group {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 6px;
+    margin-bottom: 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Visor onde a senha aparece */
-.password-display {
+.input-group:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Visor da Senha */
+.password-box {
     flex: 1;
-    background-color: #f8f9fa;
-    border: 2px dashed #cbd5e1;
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #0f172a;
-    letter-spacing: 1px;
-    word-break: break-all;
-    border-radius: 6px;
-    min-height: 24px;
+    padding: 14px 16px;
+    font-size: 1.15rem;
+    font-family: 'Courier New', Courier, monospace; /* Fonte mono para senhas */
+    font-weight: 600;
+    color: #64748b; /* Cor discreta antes de gerar */
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo quando a senha é de fato gerada */
+.password-box.active {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* Botão Inteligente de Copiar */
+.btn-copy {
+    background-color: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 0 16px;
+    cursor: pointer;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-/* Botão de Copiar */
-.copy-btn {
-    background-color: #e2e8f0;
-    border: none;
-    padding: 0 15px;
-    font-size: 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+.btn-copy:hover {
+    background-color: #1e293b;
+    color: #f8fafc;
 }
 
-.copy-btn:hover {
-    background-color: #cbd5e1;
-}
-
-.copy-btn:active {
+.btn-copy:active {
     transform: scale(0.95);
 }
 
-/* Botão de Gerar Senha */
-.generate-btn {
+/* Botão Principal de Gerar */
+.btn-generate {
     width: 100%;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 12px;
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 6px;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    transition: transform 0.1s, opacity 0.2s, box-shadow 0.2s;
 }
 
-.generate-btn:hover {
-    background-color: #1d4ed8;
+.btn-generate:hover {
+    opacity: 0.95;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
-.generate-btn:active {
+.btn-generate:active {
     transform: scale(0.98);
 }
