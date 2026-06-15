@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Senhas Pro</title>
+    <title>Gerador de Senhas Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h2>Gerador de Senha</h2>
+    <div class="card-generator">
+        <div class="header">
+            <h2>Gerador de Senha</h2>
+            <p>Gere senhas fortes e seguras instantaneamente</p>
+        </div>
         
-        <div class="password-container">
-            <div class="password-display" id="passwordScreen">Clique em Gerar</div>
-            <button class="copy-btn" onclick="copyPassword()" title="Copiar Senha">📋</button>
+        <div class="input-group">
+            <div class="password-box" id="passwordScreen">Clique em Gerar</div>
+            <button class="btn-copy" onclick="copyPassword()" title="Copiar para a área de transferência">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
         </div>
 
-        <button class="generate-btn" onclick="generatePassword()">Gerar Senha Forte</button>
+        <button class="btn-generate" onclick="generatePassword()">Gerar Nova Senha</button>
     </div>
 
     <script>
         function generatePassword() {
-            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
-            const passwordLength = 14; 
+            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$*()_+[]{}?";
+            const passwordLength = 16; // Aumentado para 16 caracteres (mais segura)
             let password = "";
 
             for (let i = 0; i < passwordLength; i++) {
@@ -30,23 +35,24 @@
                 password += chars.substring(randomNumber, randomNumber + 1);
             }
 
-            document.getElementById("passwordScreen").innerText = password;
+            const screen = document.getElementById("passwordScreen");
+            screen.innerText = password;
+            screen.classList.add("active"); // Adiciona estilo visual de "senha ativa"
         }
 
         function copyPassword() {
             const passwordText = document.getElementById("passwordScreen").innerText;
 
-            // Evita copiar o texto inicial padrão
             if (passwordText === "Clique em Gerar") {
                 alert("Gere uma senha primeiro!");
                 return;
             }
 
-            // Copia o texto para a área de transferência
             navigator.clipboard.writeText(passwordText).then(() => {
-                alert("Senha copiada para a área de transferência!");
+                // Alerta nativo do navegador simples e funcional
+                alert("Senha copiada com sucesso!");
             }).catch(err => {
-                console.error("Erro ao copiar: ", err);
+                alert("Erro ao copiar. Selecione o texto e copie manualmente.");
             });
         }
     </script>
